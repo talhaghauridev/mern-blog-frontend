@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .container {
+      @apply max-w-[1250px] m-auto w-[100%] h-[100%] px-[15px];
+    }
+    .am {
+      @apply animate-pulse w-[200px] h-[200px] rounded-full bg-black;
+    }
+    .dropdown_link {
+      @apply cursor-pointer sm:text-[15px] text-[14px]  text-[#2b3445] font-Sans w-[170px] sm:w-[180px] md:w-[194px] py-[12px] px-[16px] border-solid border-b border-[#e5e7eb] flex items-center justify-start gap-[5px] transition-all hover:bg-[#2b34450f];
+    }
+  }
+  

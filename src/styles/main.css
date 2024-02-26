@@ -1,0 +1,30 @@
+@import "./tailwind.css";
+@import "./font.css";
+
+
+#header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header_animation {
+    background-color: white;
+    z-index: 1;
+    position: sticky;
+    top: 0px;
+    transition: all 0.4 ease-in-out;
+    /* animation: ping 1s  ; */
+    box-shadow: rgba(43, 52, 69, 0.1) 0px 4px 16px;
+    border-bottom: none !important;
+  }
+  
+  #Cart {
+    background-color: #f6f9fc;
+  }
+  
+  #Cart .container {
+    padding: 90px 15px ;
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+  }
