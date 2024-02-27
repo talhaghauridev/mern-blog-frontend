@@ -63,7 +63,8 @@ const useUpload = (multiple = false): UseUploadReturn => {
         reader.readAsDataURL(image);
       };
 
-      if (multiple) {
+      if (multiple && e.target.multiple === true) {
+        
         Array.from(files).forEach(processImage);
       } else {
         processImage(files[0]);
@@ -131,20 +132,23 @@ const useInView = <T extends HTMLElement>(
 
 const useInputError = <T extends Record<string, any>>(
   formik: T,
-  name: keyof T
+  name: string
 ): string => {
   const inputError = useMemo(() => {
-    return formik &&
+    return (
+      formik &&
       "touched" in formik &&
       "errors" in formik &&
-      formik.touched[name] &&
-      formik.errors[name]
-      ? (formik.errors[name] as string)
-      : "";
+      formik.touched[name as keyof T] &&
+      formik.errors[name as keyof T]
+        ? formik.errors[name as keyof T] as string
+        : ""
+    );
   }, [formik, name]);
 
   return inputError;
 };
+
 
 const useMessage = (
   message: string | null,
