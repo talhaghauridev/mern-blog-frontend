@@ -11,25 +11,25 @@ interface IUser {
   refreshToken: string;
 }
 
-interface IProduct {
-  readonly id: string;
-  name: string;
-  category: string;
-  price: number;
-  rating: number;
-  image: {
-    url: string;
-  };
+type ImageType = {
+  url: string;
+  public_id: string;
+};
+
+interface IComment {
+  comment: string;
+  user: IUser;
 }
 
-interface UploadResult {
-  image: string[];
-  handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+interface IBlog {
+  _id: string;
+  title: string;
+  description:string;
+  image: ImageType;
+  comments: Array<IComment>;
+  user: IUser;
 }
 
+type AppProviderProps = { children: React.ReactNode };
 
-type AppProviderProps ={children:React.ReactNode}
-
-
-
-export type { IUser, IProduct, Role,UploadResult,AppProviderProps };
+export type { IUser, IBlog, Role, AppProviderProps };

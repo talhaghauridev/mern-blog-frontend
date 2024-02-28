@@ -3,8 +3,11 @@ import { setContext } from "@apollo/client/link/context";
 import { SERVER_URL } from "@constants/index";
 
 const httpLink = createHttpLink({
-  uri: SERVER_URL,
+  uri: `${SERVER_URL}/graphql`,
 });
+
+console.log(SERVER_URL);
+
 
 const authLink = setContext((_, { headers }) => {
   console.log(headers);
