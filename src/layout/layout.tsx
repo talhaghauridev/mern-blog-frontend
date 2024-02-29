@@ -1,12 +1,15 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
+import ErrorBoundary from "@lib/ErrorBoundary";
 
-const Layout:React.FC = () => {
+const Layout: React.FC = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <ErrorBoundary fallback={"Application Error"}>
+        <Outlet />
+      </ErrorBoundary>
       <Footer />
     </>
   );

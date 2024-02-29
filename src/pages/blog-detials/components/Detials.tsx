@@ -1,6 +1,7 @@
 import { Image } from "@components/ui";
+import { IBlog } from "@types";
 import React, { FC } from "react";
-import { IBlog } from "src/types";
+// import { IBlog } from "src/types";
 
 const Detials: FC<IBlog> = ({
   _id,

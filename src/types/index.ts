@@ -1,14 +1,12 @@
 type Role = "User" | "Admin";
 
 interface IUser {
-  readonly id?: string;
+  _id?: string;
   name: string;
   email: string;
-  password: string;
-  avatar: { url: string };
-  role: Role;
-  accessToken: string;
-  refreshToken: string;
+  avatar: { url: string; public_id: string };
+  token: string;
+  createAt?: string;
 }
 
 type ImageType = {
@@ -24,7 +22,7 @@ interface IComment {
 interface IBlog {
   _id: string;
   title: string;
-  description:string;
+  description: string;
   image: ImageType;
   comments: Array<IComment>;
   user: IUser;

@@ -7,6 +7,8 @@ import {
   UseToggleReturn,
   UseUploadReturn,
 } from "../types/hooksTypes";
+import { toast } from "react-toastify";
+import { ApolloError } from "@apollo/client";
 
 const useToggle = <T extends boolean>(value: T): UseToggleReturn<T> => {
   const [toggle, setToggle] = useState<T>(value || (false as T));
@@ -64,7 +66,6 @@ const useUpload = (multiple = false): UseUploadReturn => {
       };
 
       if (multiple && e.target.multiple === true) {
-        
         Array.from(files).forEach(processImage);
       } else {
         processImage(files[0]);
@@ -135,40 +136,43 @@ const useInputError = <T extends Record<string, any>>(
   name: string
 ): string => {
   const inputError = useMemo(() => {
-    return (
-      formik &&
+    return formik &&
       "touched" in formik &&
       "errors" in formik &&
       formik.touched[name as keyof T] &&
       formik.errors[name as keyof T]
-        ? formik.errors[name as keyof T] as string
-        : ""
-    );
+      ? (formik.errors[name as keyof T] as string)
+      : "";
   }, [formik, name]);
 
   return inputError;
 };
 
-
 const useMessage = (
   message: string | null,
-  error: { data?: { message?: string } } | null,
-  redirect = ""
+  error: ApolloError | undefined,
+  redirect?: string
 ): void => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (error && error.data && error?.data?.message) {
-      // toast.error(error?.data?.message);
-    } else if (error && error) {
-      // toast.error(error?.error);
+  const handleMessage = useCallback(() => {
+    if (error instanceof ApolloError || error) {
+      if (error && error?.message) {
+        toast.error(error?.message);
+      } else if (error && error) {
+        toast.error(error.networkError?.message);
+      }
     }
 
     if (message) {
-      // toast.success(message);
       redirect && navigate(redirect);
+      toast.success(message);
     }
-  }, [error, message, navigate, redirect]);
+  }, [toast, message, navigate, redirect]);
+
+  useEffect(() => {
+    handleMessage();
+  }, [handleMessage]);
 };
 
 const useClickOutside = <T extends HTMLElement>(

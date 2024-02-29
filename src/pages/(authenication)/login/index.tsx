@@ -1,27 +1,28 @@
-import React, { useRef } from "react";
 import useLogin from "../hooks/useLogin";
-import { Input } from "@components/ui";
-import { Fa0, Fa42Group } from "react-icons/fa6";
+import { Button, Input } from "@components/ui";
+import { useInputError } from "@hooks/hooks";
 
 const Login = () => {
   const { formik } = useLogin();
-  const { handleSubmit, getFieldProps, getFieldHelpers } = formik;
-  console.log("render");
-const ref = useRef<HTMLInputElement>()
-
+  const { handleSubmit, getFieldProps } = formik;
 
   return (
     <div>
-      Login
-      <Input
-        leftIcon={Fa0}
-        rightIcon={Fa42Group}
-        type="text"
-        {...getFieldProps("password")}
-      />
-
-      <input type="text" value={ref.current?.value} />
-
+      <form onSubmit={handleSubmit}>
+        <Input
+          type="email"
+          placeholder="Enter you email "
+          {...getFieldProps("email")}
+          error={useInputError(formik, "email")}
+        />
+        <Input
+          type="password"
+          placeholder="Enter you password"
+          {...getFieldProps("password")}
+          error={useInputError(formik, "password")}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
     </div>
   );
 };

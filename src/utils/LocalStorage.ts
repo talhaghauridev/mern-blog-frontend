@@ -1,25 +1,22 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+class LocalStorageInstance {
+  constructor() {}
 
+  set<T>(key: string, value: T) {
+    const val = JSON.stringify(value);
 
-//Set LocalStorage
-const setLocalStorage = <T>(key: string, value: T) => {
-  const data = JSON.stringify(value);
-  data ? localStorage.setItem(key, data) : null;
-};
+    val && localStorage.setItem(key, val);
+  }
 
-//Set GetStorage
+  get(key: string) {
+    const parseData = localStorage.getItem(key);
 
-const getLocalStorage = (key: string) => {
-  const data = localStorage.getItem(key);
-  return data ? JSON.parse(data) : null;
-};
+    return key && parseData && JSON.parse(parseData);
+  }
 
-//Set RemoveStorage
+  remove(key: string) {
+    localStorage.removeItem(key);
+  }
+}
 
-const removeLocalStorage = (key: string) => {
-  const data = localStorage.getItem(key);
-  data ? localStorage.removeItem(data) : null;
-};
-
-
-export { setLocalStorage , getLocalStorage , removeLocalStorage}
+const LocalStorage = new LocalStorageInstance();
+export default LocalStorage;

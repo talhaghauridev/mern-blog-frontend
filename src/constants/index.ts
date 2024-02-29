@@ -31,4 +31,7 @@ const FOOTER = {
   Icons: [FaInstagram, FaGithub, FaXTwitter, FaLinkedinIn],
 };
 
-export { SERVER_URL, FOOTER };
+
+const USER_INFO_KEY = "userInfo"
+
+export { SERVER_URL, FOOTER,USER_INFO_KEY };
