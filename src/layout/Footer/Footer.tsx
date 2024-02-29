@@ -1,7 +1,14 @@
-import { FOOTER } from "@constants/index";
+import { FC, memo } from "react";
 import { Logo } from "@assets/Images";
 import { Image } from "@components/ui";
-const FooterList = ({ name, list }:any) => {
+import { FOOTER } from "@constants";
+
+type FooterListProps = {
+  name: string;
+  list: string[];
+};
+
+const FooterList: FC<FooterListProps> = memo(({ name, list }) => {
   return (
     <>
       <div>
@@ -10,7 +17,7 @@ const FooterList = ({ name, list }:any) => {
         </div>
 
         <ul className="flex flex-col md:gap-1 gap-[0.5rem]  font-Sans">
-          {list.map((item:string, index:number) => (
+          {list.map((item, index) => (
             <div key={index}>
               <a
                 href="#"
@@ -24,7 +31,7 @@ const FooterList = ({ name, list }:any) => {
       </div>
     </>
   );
-};
+});
 
 const Footer = () => {
   return (
@@ -39,7 +46,7 @@ const Footer = () => {
               <Image
                 src={Logo}
                 alt="Logo"
-                className="w-[100px] h-[35px] max-w-[100%] max-h-[100%] sm:h-[40px] sm:w-[120px]  "
+                className="w-[90px] h-[50px] max-w-[100%] max-h-[100%] object-contain sm:h-[60px] sm:w-[100px]  "
               />
             </div>
 

@@ -59,13 +59,17 @@ const useUpload = (multiple = false): UseUploadReturn => {
         const reader = new FileReader();
         reader.onload = () => {
           if (reader.readyState === 2) {
-            setImages((prev) => [...prev, reader.result as string]);
+            if (multiple) {
+              setImages((prev) => [...prev, reader.result as string]);
+            } else {
+              setImages([reader.result as string]);
+            }
           }
         };
         reader.readAsDataURL(image);
       };
 
-      if (multiple && e.target.multiple === true) {
+      if (multiple) {
         Array.from(files).forEach(processImage);
       } else {
         processImage(files[0]);
@@ -151,24 +155,25 @@ const useInputError = <T extends Record<string, any>>(
 const useMessage = (
   message: string | null,
   error: ApolloError | undefined,
-  redirect?: string
+  redirect: string = ""
 ): void => {
   const navigate = useNavigate();
 
   const handleMessage = useCallback(() => {
-    if (error instanceof ApolloError || error) {
-      if (error && error?.message) {
-        toast.error(error?.message);
-      } else if (error && error) {
-        toast.error(error.networkError?.message);
+    if (error) {
+      const errorMessage = error.message || error.networkError?.message;
+      if (errorMessage) {
+        toast.error(errorMessage);
       }
     }
 
     if (message) {
-      redirect && navigate(redirect);
+      if (redirect) {
+        navigate(redirect);
+      }
       toast.success(message);
     }
-  }, [toast, message, navigate, redirect]);
+  }, [toast, message, error, navigate, redirect]);
 
   useEffect(() => {
     handleMessage();

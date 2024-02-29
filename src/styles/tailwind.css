@@ -3,14 +3,23 @@
 @tailwind utilities;
 
 @layer components {
-    .container {
-      @apply max-w-[1200px] m-auto w-[100%] h-[100%] px-[15px];
-    }
-    .am {
-      @apply animate-pulse w-[200px] h-[200px] rounded-full bg-black;
-    }
-    .dropdown_link {
-      @apply cursor-pointer sm:text-[15px] text-[14px]  text-[#2b3445] font-Sans w-[170px] sm:w-[180px] md:w-[194px] py-[12px] px-[16px] border-solid border-b border-[#e5e7eb] flex items-center justify-start gap-[5px] transition-all hover:bg-[#2b34450f];
-    }
+  .container {
+    @apply max-w-[1250px] m-auto w-[100%] h-[100%] px-[15px];
   }
-  
+  .form_container {
+    @apply max-w-[1250px] mx-auto w-full h-full py-[50px] sm:py-[80px] px-[15px] sm:px-[25px] md:px-[35px];
+  }
+  .form {
+    @apply w-full bg-[white] max-w-[470px] m-auto py-[30px] sm:py-[35px] px-[15px] sm:px-[40px] md:px-[25px] flex items-center justify-center flex-col  gap-y-[20px] relative;
+  }
+  .form_heading {
+    @apply font-Sans mb-1 text-[30px] sm:text-[35px] font-[900] text-[#2b3445] text-center;
+  }
+  .product_not_found {
+    @apply flex items-center justify-center h-[100%] max-h-[60vh] bg-white;
+  }
+  .header_icon {
+    @apply text-[21px] md:text-[24px] text-[#2b3445eb];
+  }
+
+}

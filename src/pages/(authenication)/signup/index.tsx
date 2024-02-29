@@ -1,41 +1,91 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import {
+  BackDrop,
+  Button,
+  Image,
+  Input,
+  InputUpload,
+  MetaData,
+} from "@components/ui";
+import { MdAlternateEmail } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
 import useSignup from "../hooks/useSignup";
-import { Image, Input } from "@components/ui";
 import { useInputError } from "@hooks/hooks";
-
-const Signup = () => {
-  const { formik, handleFileChange, avavtar } = useSignup();
-  const { getFieldProps } = formik;
-
+const SignUp = () => {
+  const { formik, loading, handleFileChange, avatar } = useSignup();
+  const { handleSubmit, getFieldProps } = formik;
   return (
-    <div>
-      Signup
-      <Input
-        type="text"
-        placeholder="Enter you name "
-        {...getFieldProps("name")}
-        error={useInputError(formik, "name")}
-      />
-      <Input
-        type="email"
-        placeholder="Enter you email "
-        {...getFieldProps("email")}
-        error={useInputError(formik, "email")}
-      />
-      <Input
-        type="password"
-        placeholder="Enter you password"
-        {...getFieldProps("password")}
-        error={useInputError(formik, "password")}
-      />
-      <input type="file" onChange={handleFileChange} />
-      <Image
-        src={avavtar ? avavtar : ""}
-        alt="a"
-        className="w-[20px] h-[20px] rounded"
-      />
-    </div>
+    <>
+      {loading && <BackDrop isOpen={loading} />}
+
+      <MetaData title={"SignUp"} />
+      <section id="signup">
+        <div className="form_container">
+          <form
+            className="form"
+            onSubmit={handleSubmit}
+            encType="multipart/form-data"
+          >
+            <div className="form_heading">
+              <h1>SignUp</h1>
+            </div>
+            {/* Name Input  */}
+            <Input
+              label="Name"
+              type="text"
+              placeholder="Enter your name"
+              {...getFieldProps("name")}
+              error={useInputError(formik, "name")}
+            />
+
+            {/* Input Email */}
+            <Input
+              label="Email"
+              type="email"
+              placeholder="Enter your email"
+              leftIcon={MdAlternateEmail}
+              {...getFieldProps("email")}
+              error={useInputError(formik, "email")}
+            />
+
+            {/* Input Password */}
+            <Input
+              label="Password"
+              type="password"
+              placeholder="Enter your password"
+              leftIcon={RiLockPasswordLine}
+              {...getFieldProps("password")}
+              error={useInputError(formik, "password")}
+            />
+
+            {/* Input InputUpload */}
+            <div className="upload_input">
+              <Image className="upload_avatar" src={avatar} alt="avatar" />
+              <InputUpload
+                name={"avatar"}
+                label={"Upload Avatar"}
+                onChange={handleFileChange}
+                
+              />
+            </div>
+            <Button type="submit" className="max-w-full mt-2">
+              Submit
+            </Button>
+
+            <Button
+              className="max-w-full font-Sans gap-1 mt-1 border-0"
+              variant={"outline"}
+            >
+              Already have an account?
+              <Link to="/login" className="underline">
+                Login
+              </Link>
+            </Button>
+          </form>
+        </div>
+      </section>
+    </>
   );
 };
 
-export default Signup;
+export default SignUp;

@@ -1,19 +1,26 @@
 @import "./tailwind.css";
 @import "./font.css";
 
-#header .container {
+
+
+.form {
+  box-shadow: 0 0 20px 1px rgb(0 0 0 / 13%);
+  background: rgb(255, 255, 255);
+}
+
+.upload_input {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
 }
 
-.header_animation {
-  background-color: white;
-  z-index: 1;
-  position: sticky;
-  top: 0px;
-  transition: all 0.4 ease-in-out;
-  /* animation: ping 1s  ; */
-  box-shadow: rgba(43, 52, 69, 0.1) 0px 4px 16px;
-  border-bottom: none !important;
+.upload_avatar {
+  border-radius: 50%;
+  max-width: 100%;
+  height: 45px;
+  width: 45px;
+  margin-right: 15px;
 }
+

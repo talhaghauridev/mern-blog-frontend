@@ -19,7 +19,7 @@ const InputUpload = forwardRef(
           `flex flex-col gap-[5px] w-[100%] relative overflow-hidden`
         )}
       >
-        <Button className="max-w-full" variant={"ghost"}>
+        <Button className="max-w-full" variant="danger">
           {label}
           <input
             type="file"

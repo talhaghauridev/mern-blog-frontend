@@ -43,7 +43,7 @@ const useLogin = () => {
     handelSetCrendentials();
   }, [handelSetCrendentials]);
 
-  useMessage("Login Successfully", error);
+  useMessage(data?.user ? "Login Successfully" : null, error);
 
   return {
     loading,
