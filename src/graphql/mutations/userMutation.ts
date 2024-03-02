@@ -16,7 +16,7 @@ mutation LoginUser($userData: LoginInput!) {
 
 const SIGNUP_USER = gql`
 mutation SignupUser($userData: SignupInput!) {
-  signupUser(userData: $userData) {
+  user:signupUser(userData: $userData) {
   email
   name
   token
