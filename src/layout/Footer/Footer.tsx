@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t py-[22px] text-center text-sm text-gray-400 font-Poppins">
-          © 2024 - Present cyber. All rights reserved.
+          © {new Date().getFullYear()} - Present cyber. All rights reserved.
         </div>
       </div>
     </footer>

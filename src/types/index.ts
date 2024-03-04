@@ -30,4 +30,11 @@ interface IBlog {
 
 type AppProviderProps = { children: React.ReactNode };
 
-export type { IUser, IBlog, Role, AppProviderProps };
+
+type ReviewsProps ={
+  name: string;
+  comment: string;
+  createdAt: string;
+}
+ 
+export type { IUser, IBlog, Role, AppProviderProps,ReviewsProps};
