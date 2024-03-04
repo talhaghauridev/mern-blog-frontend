@@ -9,7 +9,7 @@ interface UseToggleReturn<T> {
   type OnlineStatus = "online" | "offline";
 
   interface UseUploadReturn {
-    images: string[];
+    images: string[] | string;
     handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     setImages: React.Dispatch<React.SetStateAction<string[]>>;
   }

@@ -7,7 +7,7 @@ import { SIGNUP_USER } from "@graphql/mutations/userMutation";
 import { UserState, setCredentials } from "@redux/reducers/userReducer";
 import { useDispatch } from "react-redux";
 const useSignup = () => {
-  const { handleFileChange, images } = useUpload(false);
+  const { handleFileChange, images,setImages } = useUpload();
   const [signup, { loading, data, error }] =
     useMutation<UserState>(SIGNUP_USER);
   const dispatch = useDispatch();
@@ -17,18 +17,19 @@ const useSignup = () => {
     password: "",
   };
 
+
   //Handle Login
   const handleLogin = useCallback(
     (values: SignUpValues) => {
       if (!images[0]) return;
-      const userData = { ...values, avatar: images[0] };
+      const userData = { ...values, avatar: images };
       console.log(values);
-      
+
       signup({
         variables: { userData },
       });
     },
-    [signup,images]
+    [signup, images]
   );
 
   //Submit
@@ -57,11 +58,11 @@ const useSignup = () => {
 
   useMessage(data?.user ? "Signup Successfully" : null, error);
   console.log(images);
-  
+
   return {
     formik,
     handleFileChange,
-    avatar: images[0],
+    avatar: images,
     loading,
   };
 };

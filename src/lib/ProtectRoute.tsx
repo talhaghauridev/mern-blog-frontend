@@ -1,7 +1,8 @@
 // ProtectRoute.tsx
+import { USER_INFO_KEY } from "@constants";
+import LocalStorage from "@utils/LocalStorage";
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { getLocalStorage } from "../utils/LocalStorage";
 
 interface ProtectRouteProps {
   element?: React.ReactElement;
@@ -12,9 +13,9 @@ const ProtectRoute: React.FC<ProtectRouteProps> = ({
   isAdminRoute = false,
   element,
 }) => {
-  const isAuthenticated = getLocalStorage("User") || true;
+  const isAuthenticated = LocalStorage.get(USER_INFO_KEY);
 
-  const admin = isAuthenticated?.role === "admin" ? true : false;
+  const admin:boolean = isAuthenticated?.role === "admin" ? true : false;
   console.log(isAuthenticated, admin);
   if (!isAuthenticated) {
     return <Navigate to={"/login"} replace />;

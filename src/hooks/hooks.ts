@@ -44,7 +44,7 @@ const useOnlineStatus = (): OnlineStatus => {
   return status;
 };
 
-const useUpload = (multiple = false): UseUploadReturn => {
+const useUpload = (multiple: boolean = false): UseUploadReturn => {
   const [images, setImages] = useState<string[]>([]);
 
   const handleFileChange = useCallback(
@@ -79,7 +79,7 @@ const useUpload = (multiple = false): UseUploadReturn => {
   );
 
   return {
-    images,
+    images: multiple ? images : images[0],
     handleFileChange,
     setImages,
   };

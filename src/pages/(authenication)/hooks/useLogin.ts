@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { LoginValues, loginSchema } from "../validation";
-import { ApolloError, useMutation } from "@apollo/client";
+import {  useMutation } from "@apollo/client";
 import { useCallback, useEffect } from "react";
 import { LOGIN_USER } from "@graphql/mutations/userMutation";
 import { useDispatch } from "react-redux";

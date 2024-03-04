@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header id="header" className="bg-slate-400" >
-      <div className="container flex items-center justify-between">
+    <header className="text-gray-600 body-font border-b-[1px] border-solid border-[#efecec0]">
+      <div className="container mx-auto flex flex-wrap py-[10px] justify-between md:flex-row items-center w-full">
         <Link to="/">
           <Image
             src={Logo}
@@ -13,9 +13,7 @@ const Header = () => {
             className="w-[90px] h-[50px] max-w-[100%] max-h-[100%] object-contain sm:h-[60px] sm:w-[100px]  "
           />
         </Link>
-        <Button to="/signup" variant="danger">
-          SignUp
-        </Button>
+        <Button variant="danger" to="/login" className="max-w-[100px]" >Login</Button>
       </div>
     </header>
   );
