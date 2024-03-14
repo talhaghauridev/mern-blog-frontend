@@ -3,10 +3,8 @@ import { IBlog } from "@types";
 import { FC } from "react";
 
 const Detials: FC<IBlog> = ({
-  _id,
   title,
   image,
-  user,
   comments,
   description,
 }) => {

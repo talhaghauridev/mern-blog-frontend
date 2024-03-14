@@ -1,7 +1,8 @@
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 import Routes from "./Routes";
 import ErrorBoundary from "@lib/ErrorBoundary";
 const App = () => {
+
   return (
     <>
       <div id="App">
@@ -14,5 +15,7 @@ const App = () => {
     </>
   );
 };
+
+
 
 export default App;

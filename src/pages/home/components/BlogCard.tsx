@@ -14,7 +14,6 @@ const BlogCard: FC<BlogCardProps> = ({
   _id,
   createdAt,
   description,
-  image,
   title,
 }) => {
   return (

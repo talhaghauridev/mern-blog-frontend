@@ -1,4 +1,3 @@
-// ProtectRoute.tsx
 import { USER_INFO_KEY } from "@constants";
 import LocalStorage from "@utils/LocalStorage";
 import React from "react";

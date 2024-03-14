@@ -1,6 +1,6 @@
-import React, { Suspense, lazy, memo, useMemo, useState,FC } from "react";
+import { Suspense, lazy, memo, useState, FC, useMemo } from "react";
 import ReviewCard from "./ReviewCard";
-import { BackDrop, Button } from "@components/ui";
+import { BackDrop } from "@components/ui";
 import { FaRegCommentDots } from "react-icons/fa6";
 import { useMediaQuery } from "@hooks/hooks";
 import { useSelector } from "react-redux";
@@ -9,13 +9,13 @@ import { RootState } from "@redux/store";
 const ReviewModal = lazy(() => import("./ReviewModal"));
 
 type ReviewsTypes = {
-reviews:ReviewsProps[]
-}
+  reviews: ReviewsProps[];
+};
 
-const Reviews:FC<ReviewsTypes> = ({ reviews }) => {
+const Reviews: FC<ReviewsTypes> = ({ reviews }) => {
   const [openModal, setOpenModal] = useState(false);
   const isMobile = useMediaQuery("(max-width:640px)");
-  const { user } = useSelector((state:RootState) => state.user);
+  const { user } = useSelector((state: RootState) => state.user);
   const responsiveButtonText = useMemo(
     () =>
       isMobile ? (
@@ -32,6 +32,8 @@ const Reviews:FC<ReviewsTypes> = ({ reviews }) => {
           <h1 className="form_heading text-[25px] md:text-[34px] py-[20px]">
             Customer Reviews
           </h1>
+
+          {isMobile && responsiveButtonText}
           {/* {user && (
             <Tooltip title={"Comment"}>
               <Button

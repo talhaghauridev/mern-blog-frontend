@@ -1,6 +1,5 @@
 import React, { memo, useCallback, useEffect, useMemo } from "react";
 import { BackDrop, Button } from "@components/ui";
-// import useCreateReview from "./../../hooks/useCreateReview";
 import cn from "@utils/cn";
 
 interface ReviewModalProps {

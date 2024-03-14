@@ -3,6 +3,7 @@ import { GET_ALL_BLOGS } from "@graphql/queries/blogQuery";
 
 const useFetchBlogs = () => {
   const { loading, error, data } = useQuery(GET_ALL_BLOGS);
+  console.log(error);
 
   return {
     loading,
@@ -10,4 +11,4 @@ const useFetchBlogs = () => {
   };
 };
 
-export default  useFetchBlogs ;
+export default useFetchBlogs;

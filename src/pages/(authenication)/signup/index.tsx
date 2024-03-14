@@ -60,7 +60,7 @@ const SignUp = () => {
 
             {/* Input InputUpload */}
             <div className="upload_input">
-              <Image className="upload_avatar" src={avatar} alt="avatar" />
+              <Image className="upload_avatar" src={avatar as string} alt="avatar" />
               <InputUpload
                 name={"avatar"}
                 label={"Upload Avatar"}

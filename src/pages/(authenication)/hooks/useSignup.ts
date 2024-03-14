@@ -7,7 +7,7 @@ import { SIGNUP_USER } from "@graphql/mutations/userMutation";
 import { UserState, setCredentials } from "@redux/reducers/userReducer";
 import { useDispatch } from "react-redux";
 const useSignup = () => {
-  const { handleFileChange, images,setImages } = useUpload();
+  const { handleFileChange, images } = useUpload();
   const [signup, { loading, data, error }] =
     useMutation<UserState>(SIGNUP_USER);
   const dispatch = useDispatch();
