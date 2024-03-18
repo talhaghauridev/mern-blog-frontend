@@ -1,27 +1,10 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-
-const alias = {
-  "@components": "/src/components",
-  "@hooks": "/src/hooks",
-  "@pages": "/src/pages", 
-  "@utils": "/src/utils",
-  "@layout": "/src/layout",
-  "@lib": "/src/lib",
-  "@constants": "/src/constants",
-  "@assets": "/src/assets",
-  "@redux": "/src/redux",
-  "@styles":"/src/styles",
-  "@graphql":"/src/graphql"
-};
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
-  base: "/",
-  plugins: [react()],
-  resolve: {
-    alias,
-    
-  },
+  plugins: [tsconfigPaths(),react()],
+
   build: {
     outDir: "dist",
     terserOptions: {
