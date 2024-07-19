@@ -1,13 +1,7 @@
-import Hero from "@layout/Hero/Hero";
-import Blogs from "./components/Blogs";
-const Home = () => {
+import React from "react";
 
-  return (
-    <div>
-      <Hero />
-      <Blogs />
-    </div>
-  );
+const Home = () => {
+  return <div></div>;
 };
 
 export default Home;

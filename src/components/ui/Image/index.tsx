@@ -1,6 +1,6 @@
 import React, { useState, memo, CSSProperties, ImgHTMLAttributes } from "react";
 import cn from "@utils/cn";
-import { DefaultSkeleton } from "@assets/Images";
+import { DefaultSkeleton } from "@assets";
 import { useInView } from "@hooks/hooks";
 
 interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {

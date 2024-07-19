@@ -9,7 +9,7 @@ interface AnimationWrapperProps {
   animate?: AnimationProps["animate"];
   transition?: AnimationProps["transition"];
   className?: string;
-  key?: number;
+  keyValue?: number;
   style?: React.CSSProperties;
 }
 
@@ -19,14 +19,14 @@ const AnimationWrapper = ({
   animate = { opacity: 1 },
   transition = { duration: 1 },
   className = "",
-  key = 1,
+  keyValue = 1,
   style = {},
 }: AnimationWrapperProps) => {
   return (
     <>
       <AnimatePresence>
         <motion.div
-          key={key}
+          key={keyValue}
           initial={initial}
           animate={animate}
           transition={transition}
