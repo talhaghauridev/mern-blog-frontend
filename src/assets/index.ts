@@ -6,6 +6,9 @@ import blogBannerDark from "./blog-banner-dark.png";
 import PageNotFoundImageDark from "./404-dark.png";
 import PageNotFoundImageLight from "./404-light.png";
 import DefaultSkeleton from "./Skeleton.jpg";
+import fullLogoDark from "./full-logo-dark.png";
+import fullLogoLight from "./full-logo-light.png";
+
 export {
   logoDark,
   logoLight,
@@ -15,4 +18,6 @@ export {
   PageNotFoundImageDark,
   PageNotFoundImageLight,
   DefaultSkeleton,
+  fullLogoDark,
+  fullLogoLight,
 };

@@ -1,4 +1,4 @@
-import  {
+import {
   createContext,
   memo,
   useContext,
@@ -7,8 +7,8 @@ import  {
   HTMLAttributes,
   FC,
 } from "react";
-import cn from "@utils/cn";
-import { useClickOutside, useToggle } from "@hooks/hooks";
+import cn from "@/utils/cn";
+import { useClickOutside, useToggle } from "@/hooks/hooks";
 
 interface DropdownContextProps {
   toggleDropdown: () => void;

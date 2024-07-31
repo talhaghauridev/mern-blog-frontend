@@ -1,6 +1,6 @@
 import { useLazyQuery } from "@apollo/client";
 import { GET_LATEST_BLOGS } from "@graphql/queries/blog";
-import { useMessage } from "@hooks/hooks";
+import { useMessage } from "@/hooks/hooks";
 import { useCallback } from "react";
 
 const useFetchLatestBlogs = () => {

@@ -1,5 +1,5 @@
 import { ChangeEvent, ForwardedRef, forwardRef, memo } from "react";
-import cn from "@utils/cn";
+import cn from "@/utils/cn";
 import Button from "../Button";
 interface InputUploadProps {
   name: string;

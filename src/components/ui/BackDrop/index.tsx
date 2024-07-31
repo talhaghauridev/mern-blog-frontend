@@ -1,5 +1,5 @@
-import { memo, useMemo, ReactNode,HTMLAttributes } from "react";
-import cn from "@utils/cn";
+import { memo, useMemo, ReactNode, HTMLAttributes } from "react";
+import cn from "@/utils/cn";
 
 interface BackdropProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;

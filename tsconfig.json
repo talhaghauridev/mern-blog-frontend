@@ -9,9 +9,10 @@
     }
   ],
   "compilerOptions": {
+    /* Aliases */
     "baseUrl": ".",
     "paths": {
-      "@*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   }
 }

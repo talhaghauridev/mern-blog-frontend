@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { motion, AnimatePresence, AnimationProps } from "framer-motion";
 import { memo } from "react";
-import cn from "@utils/cn";
+import cn from "@/utils/cn";
 
 interface AnimationWrapperProps {
   children: ReactNode;
@@ -9,7 +9,7 @@ interface AnimationWrapperProps {
   animate?: AnimationProps["animate"];
   transition?: AnimationProps["transition"];
   className?: string;
-  keyValue?: number;
+  keyValue?: number | string;
   style?: React.CSSProperties;
 }
 
@@ -17,7 +17,7 @@ const AnimationWrapper = ({
   children,
   initial = { opacity: 0 },
   animate = { opacity: 1 },
-  transition = { duration: 1 },
+  transition = { duration: 0.5 },
   className = "",
   keyValue = 1,
   style = {},

@@ -7,7 +7,7 @@ import React, {
   FC,
 } from "react";
 import { FaChevronUp } from "react-icons/fa6";
-import cn from "@utils/cn";
+import cn from "@/utils/cn";
 
 interface SelectContextProps {}
 

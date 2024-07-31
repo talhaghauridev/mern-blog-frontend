@@ -9,7 +9,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
 import { refreshAccessToken } from "../utils/getProfile";
-import { API_BASE_URL } from "@utils/ApiUrls";
+import { API_BASE_URL } from "@/utils/ApiUrls";
 
 const httpLink = new HttpLink({ uri: `${API_BASE_URL}/graphql` });
 

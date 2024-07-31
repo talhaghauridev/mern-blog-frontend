@@ -1,7 +1,7 @@
 import * as React from "react";
 import { VariantProps, cva } from "class-variance-authority";
 import { Link } from "react-router-dom";
-import cn from "@utils/cn";
+import cn from "@/utils/cn";
 
 export const buttonVariants = cva(
   "w-[100%] flex item-center justify-center relative font-Sans rounded-[4px] font-[600]",

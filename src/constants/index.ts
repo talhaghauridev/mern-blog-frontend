@@ -10,5 +10,12 @@ const blogCategories = [
   "card",
 ] as const;
 
+const THEME_TYPES = {
+  LIGHT: "light",
+  DARK: "dark",
+} as const;
+
+const THEME_KEY = "theme";
+
 export type BlogCategoriesType = (typeof blogCategories)[number];
-export { blogCategories };
+export { blogCategories, THEME_TYPES, THEME_KEY };

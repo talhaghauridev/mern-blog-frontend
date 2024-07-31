@@ -1,7 +1,7 @@
 import React, { useMemo, memo, forwardRef, ForwardedRef } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
-import cn from "@utils/cn";
-import { useToggle } from "@hooks/hooks";
+import cn from "@/utils/cn";
+import { useToggle } from "@/hooks/hooks";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -39,13 +39,13 @@ const Input = forwardRef(
       <>
         <div className={`${name}_input flex flex-col gap-[5px] w-[100%]`}>
           {label && (
-            <label className="font-PoppinsBold text-[#2b3445] text-[15px] sm:text-[16px]">
+            <label className="font-PoppinsBold block mb-1 text-sm font-medium text-gray-900 dark:text-white">
               {label}
             </label>
           )}
           <div
             className={cn(
-              `flex w-[100%] relative overflow-hidden border-solid border-[1px] h-[42.5px] sm:h-[45px]  rounded-[4px]`,
+              `flex w-[100%] relative  h-[42px] rounded-lg   sm:h-[43px] `,
               error ? "border-[red!important]" : "border-[#c5c5c5ed!important]"
             )}
           >
@@ -61,7 +61,7 @@ const Input = forwardRef(
               {...props}
               ref={ref}
               className={cn(
-                "w-[100%] h-[100%] outline-none font-Poppins text-[16px] text-black placeholder:font-Poppins placeholder:text-[15px] placeholder:font-[200] placeholder:text-gray-400 pr-[20px] pl-[20px]",
+                "bg-gray-50 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
                 LIcon && "pl-[35px]",
                 RIcon && "pr-[35px]"
               )}
@@ -75,7 +75,7 @@ const Input = forwardRef(
               <button
                 type="button"
                 onClick={handleToggle}
-                className="absolute right-[8px] top-0 h-[100%] flex items-center justify-center text-[22px] cursor-pointer selection:not-sr-only transition-all text-[#2b3445]"
+                className="absolute right-[8px] top-0 h-[100%] flex items-center justify-center text-[22px] cursor-pointer selection:not-sr-only transition-all text-[#2b3445] dark:text-white"
               >
                 {show ? (
                   <LuEye className="text-[19px] sm:text-[20px]" />
